@@ -4,7 +4,7 @@ import { contractABI, contractAddress } from "./Contract";
 
 const CreateVote = () => {
   const [title, setTitle] = useState("");
-  const [options, setOptions] = useState(["", ""]); // start with 2 options
+  const [options, setOptions] = useState(["", ""]);
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
 
@@ -16,7 +16,7 @@ const CreateVote = () => {
 
   const addOption = () => setOptions([...options, ""]);
 
-  const CreateVote = async () => {
+  const handleCreatePoll = async () => {
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
@@ -25,7 +25,7 @@ const CreateVote = () => {
       const unixStart = Math.floor(new Date(startTime).getTime() / 1000);
       const unixEnd = Math.floor(new Date(endTime).getTime() / 1000);
 
-      const tx = await contract.CreateVote(title, options, unixStart, unixEnd);
+      const tx = await contract.createPoll(title, options, unixStart, unixEnd);
       await tx.wait();
       alert("Poll created successfully!");
     } catch (error) {
@@ -86,7 +86,7 @@ const CreateVote = () => {
 
       <button
         className="bg-green-600 text-white px-4 py-2 rounded w-full"
-        onClick={CreateVote}
+        onClick={handleCreatePoll}
       >
         🚀 Create Poll
       </button>

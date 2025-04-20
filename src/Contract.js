@@ -1,205 +1,95 @@
+export const contractAddress = "0x05E6f016E888483ffae206bcb17a0ea030F27599";
 
-
-export const contractAddress = "0xddaAd340b0f1Ef65169Ae5E41A8b10776a75482d"; 
-    export const contractABI = [
-        [
-            {
-                "anonymous": false,
-                "inputs": [
-                    {
-                        "indexed": false,
-                        "internalType": "uint256",
-                        "name": "pollId",
-                        "type": "uint256"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "address",
-                        "name": "creator",
-                        "type": "address"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "string",
-                        "name": "title",
-                        "type": "string"
-                    }
-                ],
-                "name": "PollCreated",
-                "type": "event"
-            },
-            {
-                "anonymous": false,
-                "inputs": [
-                    {
-                        "indexed": false,
-                        "internalType": "uint256",
-                        "name": "pollId",
-                        "type": "uint256"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "address",
-                        "name": "voter",
-                        "type": "address"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "uint256",
-                        "name": "candidateIndex",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "Voted",
-                "type": "event"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "string",
-                        "name": "_title",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string[]",
-                        "name": "_candidateNames",
-                        "type": "string[]"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "_startTime",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "_endTime",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "createPoll",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_pollId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getCandidates",
-                "outputs": [
-                    {
-                        "internalType": "string[]",
-                        "name": "names",
-                        "type": "string[]"
-                    },
-                    {
-                        "internalType": "uint256[]",
-                        "name": "voteCounts",
-                        "type": "uint256[]"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_pollId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getPollTime",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "start",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "end",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "pollCount",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "polls",
-                "outputs": [
-                    {
-                        "internalType": "address",
-                        "name": "creator",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "title",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "startTime",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "endTime",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "bool",
-                        "name": "exists",
-                        "type": "bool"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_pollId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "_candidateIndex",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "vote",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            }
-        ]
-    ];
-
-
+export const contractABI = [
+    {
+      "inputs": [
+        { "internalType": "string", "name": "_title", "type": "string" },
+        { "internalType": "string[]", "name": "_candidateNames", "type": "string[]" },
+        { "internalType": "uint256", "name": "_startTime", "type": "uint256" },
+        { "internalType": "uint256", "name": "_endTime", "type": "uint256" }
+      ],
+      "name": "createPoll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": false, "internalType": "uint256", "name": "pollId", "type": "uint256" },
+        { "indexed": false, "internalType": "address", "name": "creator", "type": "address" },
+        { "indexed": false, "internalType": "string", "name": "title", "type": "string" }
+      ],
+      "name": "PollCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_pollId", "type": "uint256" },
+        { "internalType": "uint256", "name": "_candidateIndex", "type": "uint256" }
+      ],
+      "name": "vote",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": false, "internalType": "uint256", "name": "pollId", "type": "uint256" },
+        { "indexed": false, "internalType": "address", "name": "voter", "type": "address" },
+        { "indexed": false, "internalType": "uint256", "name": "candidateIndex", "type": "uint256" }
+      ],
+      "name": "Voted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_pollId", "type": "uint256" }
+      ],
+      "name": "getCandidates",
+      "outputs": [
+        { "internalType": "string[]", "name": "names", "type": "string[]" },
+        { "internalType": "uint256[]", "name": "voteCounts", "type": "uint256[]" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_pollId", "type": "uint256" }
+      ],
+      "name": "getPoll",
+      "outputs": [
+        { "internalType": "address", "name": "creator", "type": "address" },
+        { "internalType": "string", "name": "title", "type": "string" },
+        { "internalType": "uint256", "name": "startTime", "type": "uint256" },
+        { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+        { "internalType": "bool", "name": "exists", "type": "bool" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_pollId", "type": "uint256" }
+      ],
+      "name": "getPollTime",
+      "outputs": [
+        { "internalType": "uint256", "name": "start", "type": "uint256" },
+        { "internalType": "uint256", "name": "end", "type": "uint256" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pollCount",
+      "outputs": [
+        { "internalType": "uint256", "name": "", "type": "uint256" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ];
+  
